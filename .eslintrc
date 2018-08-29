@@ -29,9 +29,8 @@
             2,
             "nofunc"
         ],
-        // TODO: turn on later
         "comma-dangle": [
-            0
+            1
         ],
         "import/no-extraneous-dependencies": [
             "error",

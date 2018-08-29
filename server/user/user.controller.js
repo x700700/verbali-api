@@ -1,4 +1,4 @@
-const User = require('./user.model');
+const User = require('../model/user.model');
 // const logger = require('../../config/winston');
 
 

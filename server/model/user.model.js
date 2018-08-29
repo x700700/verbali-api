@@ -7,7 +7,7 @@ const APIError = require('../utils/APIError');
  * User Schema
  */
 const UserSchema = new mongoose.Schema({
-    username: {
+    email: {
         type: String,
         required: true,
         index: true,
@@ -17,10 +17,24 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    nickName: {
+        type: String,
+        required: true,
+        index: true,
+        unique: true,
+    },
     createdAt: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+    },
 });
 
 /**
@@ -67,7 +81,7 @@ UserSchema.statics = {
             .skip(+skip)
             .limit(+limit)
             .exec();
-    }
+    },
 };
 
 

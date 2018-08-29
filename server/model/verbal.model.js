@@ -4,32 +4,42 @@ const httpStatus = require('http-status');
 const APIError = require('../utils/APIError');
 
 
-const TrainingSchema = new mongoose.Schema({
-    user_id: {
+const VerbalSchema = new mongoose.Schema({
+    userId: {
         type: String,
         required: true,
         index: true,
     },
-    name: {
-        type: String,
-        required: true,
-    },
-    created: {
+    createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        index: true,
     },
-    modified: {
+    editedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        index: true,
     },
-    played: {
-        type: Number,
-    },
-    success_ratio: {
-        type: Number,
-    },
-    deleted: {
+    archived: {
         type: Boolean,
+        default: false,
+        index: true,
+    },
+    public: {
+        type: Boolean,
+        default: false,
+        index: true,
+    },
+    text: {
+        type: Buffer,
+    },
+    size: {
+        type: Number,
+        index: true,
+    },
+    language: {
+        type: String,
+        index: true,
     },
 });
 
@@ -46,20 +56,20 @@ const TrainingSchema = new mongoose.Schema({
 /**
  * Methods
  */
-TrainingSchema.method({
+VerbalSchema.method({
 });
 
 
-TrainingSchema.statics = {
+VerbalSchema.statics = {
     get(id) {
         try {
             return this.findById(id)
                 .exec()
-                .then((training) => {
-                    if (training) {
-                        return training;
+                .then((verbal) => {
+                    if (verbal) {
+                        return verbal;
                     }
-                    throw new APIError('No such training exists!', httpStatus.NOT_FOUND, { isPublic: false });
+                    throw new APIError('No such verbal exists!', httpStatus.NOT_FOUND, { isPublic: false });
                 });
         } catch (err) {
             return Promise.reject(err);
@@ -72,7 +82,7 @@ TrainingSchema.statics = {
             .skip(+skip)
             .limit(+limit)
             .exec();
-    }
+    },
 };
 
-module.exports = mongoose.model('trainings', TrainingSchema);
+module.exports = mongoose.model('verbals', VerbalSchema);
