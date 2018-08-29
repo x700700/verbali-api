@@ -1,0 +1,89 @@
+{
+    "name": "verbali-api",
+    "version": "5.0.0",
+    "description": "A Boilerplate application for building REST APIs using express, mongoose in ES6 with code coverage",
+    "author": "Kunal Kapadia <kunalkapadia12@gmail.com>",
+    "main": "index.js",
+    "private": false,
+    "engines": {
+        "node": ">=8.10.0",
+        "npm": ">=5.6.0",
+        "yarn": ">=1.5.1"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "dev": "cross-env DEBUG=verbali:* nodemon --watch . index.js",
+        "full": "yarn lint && yarn test",
+        "lint": "esw *.js server config --color",
+        "lint:watch": "yarn lint -- --watch",
+        "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --ui bdd --reporter spec --colors server --recursive",
+        "test:watch": "yarn test -- --watch",
+        "test:coverage": "cross-env NODE_ENV=test ./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive",
+        "test:check-coverage": "yarn test:coverage && istanbul check-coverage",
+        "report-coverage": "coveralls < ./coverage/lcov.info"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:KunalKapadia/express-mongoose-es6-rest-api.git"
+    },
+    "keywords": [
+        "express",
+        "node",
+        "node.js",
+        "mongodb",
+        "mongoose",
+        "es6",
+        "mocha",
+        "istanbul",
+        "REST",
+        "API",
+        "boilerplate"
+    ],
+    "dependencies": {
+        "bluebird": "^3.5.1",
+        "body-parser": "^1.18.3",
+        "compression": "^1.7.3",
+        "cookie-parser": "^1.4.3",
+        "cors": "^2.8.4",
+        "debug": "^3.1.0",
+        "dotenv": "^6.0.0",
+        "path": "^0.12.7",
+        "dotenv-safe":"^6.0.0",
+        "express": "^4.16.3",
+        "express-jwt": "^5.3.1",
+        "express-validation": "^1.0.2",
+        "express-winston": "^2.6.0",
+        "helmet": "^3.13.0",
+        "http-status": "^1.2.0",
+        "joi": "^13.4.0",
+        "jsonwebtoken": "^8.3.0",
+        "method-override": "^3.0.0",
+        "moment": "^2.22.2",
+        "mongoose": "^5.2.5",
+        "morgan": "^1.9.0",
+        "winston": "^3.0.0"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "commitizen": "^2.10.1",
+        "coveralls": "^3.0.2",
+        "cross-env": "^5.2.0",
+        "cz-conventional-changelog": "^2.1.0",
+        "eslint": "^5.2.0",
+        "eslint-config-airbnb-base": "^13.0.0",
+        "eslint-plugin-import": "^2.13.0",
+        "eslint-watch": "^4.0.2",
+        "istanbul": "^1.1.0-alpha.1",
+        "mocha": "^5.2.0",
+        "supertest": "^3.1.0",
+        "supertest-as-promised": "^4.0.2",
+        "validate-commit-msg": "^2.14.0",
+        "nodemon": "^1.18.3"
+    },
+    "license": "MIT",
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
