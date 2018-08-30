@@ -10,7 +10,7 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 
 router.get('/status', (req, res) =>
-    res.send('OK')
+    res.send('OK'),
 );
 
 router.use('/users', userRoutes);
