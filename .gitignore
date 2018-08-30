@@ -9,7 +9,7 @@ pids
 *.seed
 
 # IDE
-.idea
+# .idea
 
 # OS generated files
 .DS_Store
