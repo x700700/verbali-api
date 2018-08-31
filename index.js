@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const util = require('util');
 const debug = require('debug')('memorise-api:index');
-const logger = require('./config/winston');
+const logger = require('./config/logger');
 
 const app = require('./config/express');
 const config = require('./config/config');
@@ -16,6 +16,7 @@ Promise = require('bluebird'); // eslint-disable-line no-global-assign
 mongoose.Promise = Promise;
 
 // connect to mongo db
+/*
 const mongoUri = `mongodb://${config.mongo.username}:${config.mongo.password}@${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`;
 mongoose.connect(mongoUri, {
     useNewUrlParser: true,
@@ -26,11 +27,12 @@ mongoose.connect(mongoUri, {
     autoReconnect: true,
     reconnectTries: 300000,
     reconnectInterval: 5000,
-    promiseLibrary: global.Promise
+    promiseLibrary: global.Promise,
 });
 mongoose.connection.on('error', () => {
     throw new Error(`unable to connect to database: ${mongoUri}`);
 });
+*/
 
 // print mongoose logs in dev env
 if (config.mongooseDebug) {

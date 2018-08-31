@@ -1,6 +1,5 @@
 const express = require('express');
 const validate = require('express-validation');
-const expressJwt = require('express-jwt');
 const authValidation = require('./auth.validation');
 const authCtrl = require('./auth.controller');
 const config = require('../../config/config');
@@ -18,7 +17,7 @@ router.route('/login')
 /** GET /auth/random-number - Protected route,
  * needs token returned by the above as header. Authorization: Bearer {token} */
 router.route('/random-number')
-    .get(expressJwt({ secret: config.jwtSecret }), authCtrl.getRandomNumber);
+    .get(/* expressJwt({ secret: config.jwtSecret }), */ authCtrl.getRandomNumber);
 
 
 

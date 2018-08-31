@@ -36,8 +36,8 @@ const logger = createLogger({
         new (transports.Console)({
             json: true,
             colorize: true,
-        })
-    ]
+        }),
+    ],
 });
 
 module.exports = logger;
