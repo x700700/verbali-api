@@ -46,6 +46,7 @@ const UserSchema = new mongoose.Schema({
 /**
  * Add your
  * - pre-save hooks
+ * // Todo - modifiedAt
  * - validations
  * - virtuals
  */
