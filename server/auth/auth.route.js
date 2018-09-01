@@ -27,6 +27,10 @@ router.route('/check')
     /** GET /auth/check - Check user is logged in */
     .get(authCtrl.check);
 
+router.route('/logout')
+
+    /** GET /auth/logout - Logout */
+    .get(authCtrl.logout);
 
 
 module.exports = router;

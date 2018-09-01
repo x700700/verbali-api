@@ -21,15 +21,17 @@ exports.changePassword = (req, res, next) => {
 
 exports.login = (req, res, next) => {
     // eslint-disable-next-line consistent-return
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, user) => {
         if (err) {
+            req.logout();
             return res.status(httpStatus.UNAUTHORIZED).send(err);
         }
         if (!user) {
-            return res.redirect('/login'); // Todo - on login failed
+            return res.status(httpStatus.UNAUTHORIZED).send('Missing user details');
         }
         req.login(user, (error) => {
             if (error) {
+                req.logout();
                 return res.status(httpStatus.UNAUTHORIZED).send(error);
             }
             return res.json(userMgr.toObj(user));
@@ -37,11 +39,15 @@ exports.login = (req, res, next) => {
     })(req, res, next);
 };
 
-exports.check = (req, res, next) => {
+exports.check = (req, res) => {
     if (req.isAuthenticated()) {
-        res.json({ status: 'OK' });
+        return res.json(userMgr.toObj(req.user));
     } else {
         return res.status(httpStatus.UNAUTHORIZED).send('Not Authenticated');
     }
 };
 
+exports.logout = (req, res) => {
+    req.logout();
+    return res.json({ status: 'OK' });
+};
