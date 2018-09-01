@@ -1,6 +1,6 @@
 const _ = require('lodash');
 const passport = require('passport');
-const bcrypt = require('bcrypt-nodejs');
+// const bcrypt = require('bcrypt-nodejs');
 const LocalStrategy = require('passport-local').Strategy;
 const httpStatus = require('http-status');
 const APIError = require('../server/utils/APIError');
@@ -8,8 +8,8 @@ const APIError = require('../server/utils/APIError');
 
 const demoUsers = [
     {
-        'u1': {
-            id: 'u1',
+        '01-u1': {
+            id: '01-u1',
             email: 'x700700@gmail.com',
             password: 'Asdf12',
         },

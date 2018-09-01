@@ -39,7 +39,7 @@ const find = (req, res, next) => {
 const create = (req, res, next) => {
     const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
     });
     user.save()
         .then(savedUser => res.json(savedUser))

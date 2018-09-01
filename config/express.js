@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const session = require('express-session');
 const expressWinston = require('express-winston');
@@ -8,7 +9,7 @@ const compress = require('compression');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const uuid = require('uuid/v4');
-const FileStore = require('session-file-store')(session);
+// const FileStore = require('session-file-store')(session);
 const flash = require('connect-flash');
 const logger = require('morgan');
 const passport = require('./passport');
@@ -46,11 +47,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({
     genid: (req) => {
-        console.log('Inside session middleware genid function');
-        console.log(`Request object sessionID from client: ${req.sessionID}`);
+        console.log(`session.genid - sessionID: ${req.sessionID}`);
         return uuid();
     },
-    store: new FileStore(),
+    // store: new FileStore(), // Todo - Redis
     secret: 'bo0liwRotEverrr4al1i1',
     resave: false,
     saveUninitialized: true,

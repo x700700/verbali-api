@@ -7,6 +7,11 @@ module.exports = {
             email: Joi.string().required(),
             password: Joi.string().required(),
         },
+        /*
+        query: {
+            shunra: Joi.string().required(),
+        },
+        */
         options: reqValidationOptionsStrict,
     },
 };
