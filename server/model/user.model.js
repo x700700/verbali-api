@@ -6,6 +6,9 @@ const APIError = require('../utils/APIError');
 /**
  * User Schema
  */
+
+// Todo GDPR - encrypt db
+
 const UserSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -19,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         index: true,
         unique: true,
     },
-    password: {
+    passwordHash: {
         type: String,
         required: true,
     },

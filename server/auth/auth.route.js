@@ -7,6 +7,15 @@ const authCtrl = require('./auth.controller');
 const router = express.Router(); // eslint-disable-line new-cap
 
 
+router.route('/register')
+
+    /** POST /auth/register - Register */
+    .post(validate(authValidation.regisger), authCtrl.register); // Todo GDPR - prevent massive attack
+
+router.route('/change-password')
+
+    /** POST /auth/change-password - Change password */
+    .post(validate(authValidation.regisger), authCtrl.register); // Todo GDPR - prevent massive attack
 
 router.route('/login')
 

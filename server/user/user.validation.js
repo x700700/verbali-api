@@ -10,13 +10,7 @@ const mainFields = {
 };
 
 module.exports = {
-    createUser: {
-        body: {
-            ...mainFields,
-            password: Joi.string().required(),
-        },
-        options: reqValidationOptionsStrict,
-    },
+    mainFields: mainFields,
 
     updateUser: {
         body: {

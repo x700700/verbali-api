@@ -17,8 +17,8 @@ passport.use(new LocalStrategy(
                 if (!user) {
                     return done(`Invalid email [${email}]`, null);
                 }
-                if (password !== user.password) {
-                // if (!bcrypt.compareSync(password, user.password)) {
+                // if (password !== user.password) {
+                if (!bcrypt.compareSync(password, user.passwordHash)) {
                     return done(`Invalid password [${password}]`, null);
                 }
                 return done(null, user);

@@ -24,15 +24,6 @@ exports.find = (req, res, next) => {
         .catch(e => next(e));
 };
 
-exports.create = (req, res, next) => {
-    const user = userMgr.toModel(new User(), req);
-    user.createdAt = moment.now();
-    user.modifiedAt = null;
-    user.save()
-        .then(savedUser => res.json(userMgr.toObj(savedUser)))
-        .catch(e => next(e));
-};
-
 exports.update = (req, res, next) => {
     const user = userMgr.toModel(req.user, req);
     user.save()

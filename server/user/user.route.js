@@ -12,10 +12,6 @@ router.route('/')
     /** GET /users - Get list of users */
     .get(auth.requiresLogin, userCtrl.list)
 
-    /** POST /users - Create new user */
-    .post(validate(userValidation.createUser), userCtrl.create); // Todo - prevent massive attack
-
-
 
 router.route('/search')
 
