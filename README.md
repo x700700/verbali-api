@@ -161,7 +161,7 @@ bash bin/development.sh
 docker build -t express-mongoose-es6-rest-api .
 
 # Run docker
-docker run -p 4040:4040 express-mongoose-es6-rest-api
+docker run -p 4069:4069 express-mongoose-es6-rest-api
 ```
 
 

@@ -7,7 +7,7 @@ module.exports = {
             username: Joi.string().required(),
             password: Joi.string().required(),
         },
-        options: reqValidationOptionsStrict
+        options: reqValidationOptionsStrict,
     },
 
     updateUser: {
@@ -18,6 +18,6 @@ module.exports = {
         params: {
             userId: Joi.string().hex().required(),
         },
-        options: reqValidationOptionsStrict
+        options: reqValidationOptionsStrict,
     },
 };

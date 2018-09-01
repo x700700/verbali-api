@@ -4,9 +4,14 @@ const { reqValidationOptionsStrict } = require('../utils/validation-consts');
 module.exports = {
     login: {
         body: {
-            username: Joi.string().required(),
-            password: Joi.string().required()
+            email: Joi.string().required(),
+            password: Joi.string().required(),
         },
-        options: reqValidationOptionsStrict
-    }
+        /*
+        query: {
+            shunra: Joi.string().required(),
+        },
+        */
+        options: reqValidationOptionsStrict,
+    },
 };

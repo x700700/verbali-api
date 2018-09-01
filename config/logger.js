@@ -16,10 +16,14 @@ const msgFormatter = (info) => {
         } else {
             msg += `  ==> res: ${JSON.stringify(res.body)}`;
         }
-        if (stack && stack.indexOf('at exports.converter') < 0) {
+        if (stack /* && stack.indexOf('at exports.converter') < 0 */) {
             msg += `\n\n${stack}`;
             delete res.body.stack;
         }
+    }
+    const splat = info[Symbol.for('splat')];
+    if (splat && splat[0] && !splat[0].req) {
+        msg += splat;
     }
     return msg;
 };
@@ -27,17 +31,18 @@ const msgFormatter = (info) => {
 const logger = createLogger({
     format: format.combine(
         format.timestamp({
-            format: 'YYYY-MM-DD HH:mm:ss'
+            format: 'YYYY-MM-DD HH:mm:ss',
         }),
-        // format.simple()
-        format.printf(info => `${info.timestamp} - ${info.level} :: ${info.message}${msgFormatter(info)}`)
+        format.splat(),
+        // format.simple(),
+        format.printf(info => `${info.timestamp} - ${info.level} :: ${info.message}${msgFormatter(info)}`),
     ),
     transports: [
         new (transports.Console)({
             json: true,
             colorize: true,
-        })
-    ]
+        }),
+    ],
 });
 
 module.exports = logger;
