@@ -1,10 +1,18 @@
 const Joi = require('joi');
 const { reqValidationOptionsStrict } = require('../utils/validation-consts');
 
+
+const mainFields = {
+    email: Joi.string().required(),
+    nickName: Joi.string().required(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+};
+
 module.exports = {
     createUser: {
         body: {
-            username: Joi.string().required(),
+            ...mainFields,
             password: Joi.string().required(),
         },
         options: reqValidationOptionsStrict,
@@ -12,8 +20,7 @@ module.exports = {
 
     updateUser: {
         body: {
-            username: Joi.string().required(),
-            mobileNumber: Joi.string().regex(/^[1-9][0-9]{9}$/).required(),
+            ...mainFields,
         },
         params: {
             userId: Joi.string().hex().required(),

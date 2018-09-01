@@ -9,7 +9,9 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 
 
-router.route('/get')
+router.route('/')
+
+    /** GET /verbals/:verbalId - Get verbal */
     .get(auth.requiresLogin, verbalCtrl.get);
 
 

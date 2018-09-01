@@ -13,6 +13,12 @@ const UserSchema = new mongoose.Schema({
         index: true,
         unique: true,
     },
+    nickName: {
+        type: String,
+        required: true,
+        index: true,
+        unique: true,
+    },
     password: {
         type: String,
         required: true,
@@ -25,13 +31,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    nickName: {
-        type: String,
-        required: true,
-        index: true,
-        unique: true,
-    },
     createdAt: {
+        type: Date,
+    },
+    modifiedAt: {
         type: Date,
         default: Date.now,
     },

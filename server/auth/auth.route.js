@@ -8,35 +8,15 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 
 
-/** POST /auth/login - Returns token if correct username and password is provided */
 router.route('/login')
+
+    /** POST /auth/login - Login */
     .post(validate(authValidation.login), authCtrl.login);
 
 router.route('/check')
+
+    /** GET /auth/check - Check user is logged in */
     .get(authCtrl.check);
-
-
-/*
-app.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if(info) {return res.send(info.message)}
-    if (err) { return next(err); }
-    if (!user) { return res.redirect('/login'); }
-    req.login(user, (err) => {
-      if (err) { return next(err); }
-      return res.redirect('/authrequired');
-    })
-  })(req, res, next);
-})
-
-
-
-app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/profile',
-    failureRedirect : '/login',
-    failureFlash : true,
-}));
-*/
 
 
 
