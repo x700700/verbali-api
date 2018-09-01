@@ -66,7 +66,7 @@ UserSchema.statics = {
                         return user;
                     }
                     throw new APIError('No such user exists!', httpStatus.NOT_FOUND, { isPublic: false });
-                });
+                }); // Todo - .catch instead of try
         } catch (err) {
             return Promise.reject(err);
         }
@@ -76,11 +76,15 @@ UserSchema.statics = {
      * List users in descending order of 'createdAt' timestamp.
      */
     list({ skip = 0, limit = 50 } = {}) {
-        return this.find()
-            .sort({ createdAt: -1 })
-            .skip(+skip)
-            .limit(+limit)
-            .exec();
+        try {
+            return this.find()
+                .sort({ createdAt: -1 })
+                .skip(+skip)
+                .limit(+limit)
+                .exec();
+        } catch (err) {
+            return Promise.reject(err);
+        }
     },
 };
 
