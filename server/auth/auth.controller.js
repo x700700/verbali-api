@@ -3,6 +3,7 @@ const passport = require('../../config/passport');
 
 
 exports.login = (req, res, next) => {
+    // eslint-disable-next-line consistent-return
     passport.authenticate('local', (err, user, info) => {
         if (info) {
             return res.send(info.message);
@@ -27,7 +28,7 @@ exports.check = (req, res, next) => {
         res.json({ message: 'signed in' });
     } else {
         const error = { message: 'not authenticated' };
-        res.next(error);
+        next(error);
     }
 };
 
