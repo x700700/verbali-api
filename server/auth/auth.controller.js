@@ -1,28 +1,47 @@
 const httpStatus = require('http-status');
+const passport = require('../../config/passport');
 const APIError = require('../utils/APIError');
 const config = require('../../config/config');
 
-// sample user, used for authentication
-const user = {
-    username: 'react',
-    password: 'express'
+
+
+exports.login = (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (info) {
+            return res.send(info.message);
+        }
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.redirect('/login');
+        }
+        req.login(user, (error) => {
+            if (error) {
+                return next(error);
+            }
+            return res.json(user);
+        });
+    })(req, res, next);
 };
 
-/**
- * Returns jwt token if valid username and password is provided
- */
+exports.check = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        res.json({ result: 'OK' });
+    } else {
+        const error = { message: 'not authenticated' };
+        res.next(error);
+    }
+};
+
+
+/*
 const login = (req, res, next) => {
     try {
         // Ideally you'll fetch this from the db
         // Idea here was to show how jwt works with simplicity
         if (req.body.username === user.username && req.body.password === user.password) {
-            const token = jwt.sign({
-                username: user.username
-            }, config.jwtSecret);
-            return res.json({
-                token,
-                username: user.username
-            });
+
         }
         throw new APIError('Authentication error', httpStatus.UNAUTHORIZED);
     } catch (err) {
@@ -30,13 +49,9 @@ const login = (req, res, next) => {
     }
 };
 
-/**
- * This is a protected route. Will return random number only if jwt token is provided in header.
- */
 const getRandomNumber = (req, res) => res.json({
         user: req.user,
         num: Math.random() * 100
     });
+*/
 
-
-module.exports = { login, getRandomNumber };

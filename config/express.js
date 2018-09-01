@@ -1,16 +1,25 @@
 const express = require('express');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const compress = require('compression');
-const methodOverride = require('method-override');
-const cors = require('cors');
+const session = require('express-session');
 const expressWinston = require('express-winston');
 const helmet = require('helmet');
+const cors = require('cors');
+const methodOverride = require('method-override');
+const compress = require('compression');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const uuid = require('uuid/v4');
+const FileStore = require('session-file-store')(session);
+const flash = require('connect-flash');
+const logger = require('morgan');
+const passport = require('./passport');
+
+
+
 const winstonInstance = require('./logger');
 const routes = require('../server/index.route');
 const config = require('./config');
 const error = require('../middlewares/error');
+
 
 const app = express();
 
@@ -33,14 +42,35 @@ app.use(helmet());
 app.use(cors());
 
 
-// enable detailed API logging in dev env
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(session({
+    genid: (req) => {
+        console.log('Inside session middleware genid function');
+        console.log(`Request object sessionID from client: ${req.sessionID}`);
+        return uuid();
+    },
+    store: new FileStore(),
+    secret: 'bo0liwRotEverrr4al1i1',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 60 * 15,
+    },
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+
 if (config.env === 'development') {
     expressWinston.requestWhitelist.push('body');
     expressWinston.responseWhitelist.push('body');
     app.use(expressWinston.logger({
         winstonInstance,
         meta: true, // optional: log meta data about request (defaults to true)
-        colorStatus: true // Color the status code (default green, 3XX cyan, 4XX yellow, 5XX red).
+        colorStatus: true, // Color the status code (default green, 3XX cyan, 4XX yellow, 5XX red).
         // msg: 'HTTP {{req.method}} {{req.url}} {{res.statusCode}} {{res.responseTime}}ms  -->  {{JSON.stringify(req.body)}} ==> {{JSON.stringify(res.body)}}',
     }));
 }

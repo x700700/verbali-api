@@ -12,12 +12,31 @@ const router = express.Router(); // eslint-disable-line new-cap
 router.route('/login')
     .post(validate(authValidation.login), authCtrl.login);
 
+router.route('/check')
+    .get(authCtrl.check);
 
 
-/** GET /auth/random-number - Protected route,
- * needs token returned by the above as header. Authorization: Bearer {token} */
-router.route('/random-number')
-    .get(/* expressJwt({ secret: config.jwtSecret }), */ authCtrl.getRandomNumber);
+/*
+app.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if(info) {return res.send(info.message)}
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/login'); }
+    req.login(user, (err) => {
+      if (err) { return next(err); }
+      return res.redirect('/authrequired');
+    })
+  })(req, res, next);
+})
+
+
+
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/profile',
+    failureRedirect : '/login',
+    failureFlash : true,
+}));
+*/
 
 
 
