@@ -1,16 +1,26 @@
+/* eslint-disable no-param-reassign */
 const moment = require('moment');
 const bcrypt = require('bcrypt-nodejs');
 const User = require('../model/user.model');
 
 
-exports.toModel = (user, req) => new User({
-    email: req.body.email || user.email,
+exports.toNewModel = req => new User({
+    email: req.body.email,
     passwordHash: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
-    nickName: req.body.nickName || user.nickName,
-    firstName: req.body.firstName || user.firstName,
-    lastName: req.body.lastName || user.lastName,
+    nickName: req.body.nickName,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     modifiedAt: moment.now(),
 });
+
+exports.updateModel = (user, req) => {
+    user.email = req.body.email;
+    user.nickName = req.body.nickName;
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.modifiedAt = moment.now();
+    return user;
+};
 
 
 const toObj = user => ({

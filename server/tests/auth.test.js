@@ -9,13 +9,13 @@ chai.config.includeStack = true;
 
 describe('## Auth APIs', () => {
     const validUserCredentials = {
-        username: 'x700700@gmail.com',
+        email: 'x700700@gmail.com',
         password: 'Asdf12',
     };
 
     const invalidUserCredentials = {
-        username: 'nobady@gmail.com',
-        password: 'fuckOff',
+        email: 'nobady@dummy.com',
+        password: 'Eiyn',
     };
 
     describe('# POST /auth/login', () => {
@@ -25,7 +25,7 @@ describe('## Auth APIs', () => {
                 .send(invalidUserCredentials)
                 .expect(httpStatus.UNAUTHORIZED)
                 .then((res) => {
-                    expect(res.body.message).to.equal('Authentication error');
+                    expect(res.error.text).to.include('Invalid email');
                     done();
                 })
                 .catch(done);
@@ -43,28 +43,4 @@ describe('## Auth APIs', () => {
         });
     });
 
-    describe('# GET /auth/random-number', () => {
-        it('should fail to get random number because of missing Authorization', (done) => {
-            request(app)
-                .get('/auth/random-number')
-                .expect(httpStatus.UNAUTHORIZED)
-                .then((res) => {
-                    expect(res.body.message).to.equal('Unauthorized');
-                    done();
-                })
-                .catch(done);
-        });
-
-        it('should fail to get random number because of wrong token', (done) => {
-            request(app)
-                .get('/auth/random-number')
-                .set('Authorization', 'Bearer inValidToken')
-                .expect(httpStatus.UNAUTHORIZED)
-                .then((res) => {
-                    expect(res.body.message).to.equal('Unauthorized');
-                    done();
-                })
-                .catch(done);
-        });
-    });
 });

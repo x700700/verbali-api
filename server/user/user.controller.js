@@ -18,14 +18,14 @@ exports.get = (req, res) => res.json(req.user);
 
 
 exports.find = (req, res, next) => {
-    const { username } = req.query;
-    User.findOne({ username: username })
+    const { email } = req.query;
+    User.findOne({ email: email })
         .then(foundUser => res.json(userMgr.toObj(foundUser)))
         .catch(e => next(e));
 };
 
 exports.update = (req, res, next) => {
-    const user = userMgr.toModel(req.user, req);
+    const user = userMgr.updateModel(req.user, req);
     user.save()
         .then(savedUser => res.json(userMgr.toObj(savedUser)))
         .catch(e => next(e));

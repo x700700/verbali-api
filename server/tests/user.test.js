@@ -10,6 +10,7 @@ chai.config.includeStack = true;
 /**
  * root level hooks
  */
+/*
 after((done) => {
     // required because https://github.com/Automattic/mongoose/issues/1251#issuecomment-65793092
     mongoose.models = {};
@@ -17,22 +18,29 @@ after((done) => {
     mongoose.connection.close();
     done();
 });
+*/
 
+const itemsId = Math.random().toString(36).substring(7);
 describe('## User APIs', () => {
     let user = {
-        username: 'KK123',
-        mobileNumber: '1234567890',
-    };
+        email: `!!__test-${itemsId}@dummy.com`,
+        nickName: `!!__test-${itemsId}`,
+        password: 'Asdf12',
+        firstName: `test-${itemsId}`,
+        lastName: 'Weisstest',
 
-    describe('# POST /users', () => {
-        it('should create a new user', (done) => {
+    };
+    const renamedUserNickName = `!!__tst-renamed-${itemsId}`;
+
+    describe('# POST /auth/register', () => {
+        it('should register a new user', (done) => {
             request(app)
-                .post('/users')
+                .post('/auth/register')
                 .send(user)
                 .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.body.username).to.equal(user.username);
-                    expect(res.body.mobileNumber).to.equal(user.mobileNumber);
+                    expect(res.body.email).to.equal(user.email);
+                    expect(res.body.nickName).to.equal(user.nickName);
                     user = res.body;
                     done();
                 })
@@ -43,11 +51,11 @@ describe('## User APIs', () => {
     describe('# GET /users/:userId', () => {
         it('should get user details', (done) => {
             request(app)
-                .get(`/users/${user._id}`)
+                .get(`/users/${user.id}`)
                 .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.body.username).to.equal(user.username);
-                    expect(res.body.mobileNumber).to.equal(user.mobileNumber);
+                    expect(res.body.email).to.equal(user.email);
+                    expect(res.body.nickName).to.equal(user.nickName);
                     done();
                 })
                 .catch(done);
@@ -67,14 +75,19 @@ describe('## User APIs', () => {
 
     describe('# PUT /users/:userId', () => {
         it('should update user details', (done) => {
-            user.username = 'KK';
+            user.email = renamedUserNickName;
+            const userId = user.id;
+            delete user.id;
+            delete user.createdAt;
+            delete user.modifiedAt;
             request(app)
-                .put(`/users/${user._id}`)
+                .put(`/users/${userId}`)
                 .send(user)
                 .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.body.username).to.equal('KK');
-                    expect(res.body.mobileNumber).to.equal(user.mobileNumber);
+                    expect(res.body.email).to.equal(renamedUserNickName);
+                    expect(res.body.nickName).to.equal(user.nickName);
+                    user = res.body;
                     done();
                 })
                 .catch(done);
@@ -109,11 +122,11 @@ describe('## User APIs', () => {
     describe('# DELETE /users/', () => {
         it('should delete user', (done) => {
             request(app)
-                .delete(`/users/${user._id}`)
+                .delete(`/users/${user.id}`)
                 .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.body.username).to.equal('KK');
-                    expect(res.body.mobileNumber).to.equal(user.mobileNumber);
+                    expect(res.body.email).to.equal(renamedUserNickName);
+                    expect(res.body.nickName).to.equal(user.nickName);
                     done();
                 })
                 .catch(done);

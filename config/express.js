@@ -45,9 +45,13 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+
 app.use(session({
+// eslint-disable-next-line no-unused-vars,arrow-body-style
     genid: (req) => {
-        console.log(`session.genid - sessionID: ${req.sessionID}`);
+        // console.log(`session.genid - sessionID: ${req.sessionID}`);
         return uuid();
     },
     // store: new FileStore(), // Todo - Redis

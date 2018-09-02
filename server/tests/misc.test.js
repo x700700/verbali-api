@@ -33,6 +33,7 @@ describe('## Misc', () => {
         });
     });
 
+    /*
     describe('# Error Handling', () => {
         it('should handle mongoose CastError - Cast to ObjectId failed', (done) => {
             request(app)
@@ -59,4 +60,6 @@ describe('## Misc', () => {
                 .catch(done);
         });
     });
+    */
+
 });

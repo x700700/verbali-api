@@ -8,7 +8,7 @@ const userMgr = require('../user/user.manager');
 
 
 exports.register = (req, res, next) => {
-    const user = userMgr.toModel(new User(), req);
+    const user = userMgr.toNewModel(req);
     user.createdAt = moment.now();
     user.modifiedAt = null;
     user.save()
