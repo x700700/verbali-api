@@ -76,6 +76,18 @@ describe('## Auth APIs', () => {
                 .catch(done);
         });
 
+        it('should failed auth check', (done) => {
+            const req = request(app).get('/auth/check');
+            req.cookies = cookies;
+            req
+                .send(user)
+                .expect(httpStatus.UNAUTHORIZED)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+
         it('should login & get valid session cookie', (done) => {
             request(app)
                 .post('/auth/login')
@@ -88,6 +100,19 @@ describe('## Auth APIs', () => {
                 })
                 .catch(done);
         });
+
+        it('should succeed auth check', (done) => {
+            const req = request(app).get('/auth/check');
+            req.cookies = cookies;
+            req
+                .send(user)
+                .expect(httpStatus.OK)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+
     });
 
     describe('# DELETE /users', () => {
