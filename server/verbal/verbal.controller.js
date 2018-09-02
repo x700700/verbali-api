@@ -26,12 +26,12 @@ exports.find = (req, res, next) => {
 
 
 exports.get = (req, res) => {
-    res.json({
+    res.json([{
         userId: req.user.id,
         email: req.user.email,
         createdAt: 'Friday',
         text: 'Sometimes headache is jsut an headache.',
-    });
+    }]);
 };
 
 /*

@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const passport = require('passport');
 const bcrypt = require('bcrypt-nodejs');
 const LocalStrategy = require('passport-local').Strategy;

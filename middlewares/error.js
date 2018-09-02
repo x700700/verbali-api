@@ -1,14 +1,12 @@
 const httpStatus = require('http-status');
 const expressValidation = require('express-validation');
 const APIError = require('./APIError');
+const logger = require('../config/logger');
 const config = require('../config/config');
 
 
-/**
- * Error handler. Send stacktrace only during development
- * @public
- */
 const handler = (err, req, res, next) => {
+    // Send stacktrace only during development
     res.status(err.status).json({
         status: err.status,
         message: err.isPublic && err.message ? err.message : httpStatus[err.status],
@@ -19,27 +17,20 @@ const handler = (err, req, res, next) => {
 };
 exports.handler = handler;
 
-/**
- * If error is not an instanceOf APIError, convert it.
- * @public
- */
+
 exports.converter = (err, req, res, next) => {
+    let error = err;
     if (err instanceof expressValidation.ValidationError) {
-        // validation error contains errors which is an array of error each containing message[]
-        const unifiedErrorMessage = err.errors.map(error => `${error.location}: ${error.messages.join('. ')}`).join(' and ');
-        const error = new APIError(unifiedErrorMessage, err.status, { apiErrorCode: -4 });
-        return next(error);
+        const unifiedErrorMessage = err.errors.map(e => `${e.location}: ${e.messages.join('. ')}`).join(' and ');
+        error = new APIError(unifiedErrorMessage, err.status, { apiErrorCode: -4 });
     } else if (!(err instanceof APIError)) {
-        const apiError = new APIError(err.message, err.status, { isPublic: err.isPublic || true, apiErrorCode: -1 });
-        return next(apiError);
+        error = new APIError(err.message, err.status, { isPublic: err.isPublic || true, apiErrorCode: -1 });
     }
-    return next(err);
+    logger.error(error);
+    return next(error);
 };
 
-/**
- * Catch 404 and forward to error handler
- * @public
- */
+
 exports.notFound = (req, res, next) => {
     const err = new APIError('API Not Found', httpStatus.NOT_FOUND, { isPublic: false });
     return next(err);
