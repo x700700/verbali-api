@@ -2,8 +2,8 @@ const moment = require('moment');
 const httpStatus = require('http-status');
 const bcrypt = require('bcrypt-nodejs');
 const logger = require('../../middlewares/logger');
+const APIError = require('../../middlewares/APIError');
 const passport = require('../../middlewares/passport');
-const User = require('../model/user.model');
 const userMgr = require('../user/user.manager');
 
 
@@ -48,20 +48,19 @@ exports.logout = (req, res) => {
 
 exports.changePassword = (req, res, next) => {
     const { email, oldPassword, newPassword } = req.body;
-    User.findOne({ email: email })
-    // eslint-disable-next-line consistent-return
-        .then((user) => {
-            if (!user) {
-                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid email [${email}]`); // Todo - send APIError
-            }
-            if (!bcrypt.compareSync(oldPassword, user.passwordHash)) {
-                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid password [${oldPassword}]`); // Todo - send APIError
-            }
-            // eslint-disable-next-line no-param-reassign
-            user.passwordHash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
-            user.save()
-                .then(savedUser => res.json(userMgr.toObj(savedUser)))
-                .catch(e => next(e));
-        })
+    const { user } = req;
+    if (!user) {
+        throw new APIError('no authenticated user', httpStatus.UNAUTHORIZED);
+    }
+    if (user.email !== email) {
+        throw new APIError('Bad Credentials', httpStatus.UNAUTHORIZED);
+    }
+    if (!bcrypt.compareSync(oldPassword, user.passwordHash)) {
+        throw new APIError('Bad Credentials', httpStatus.UNAUTHORIZED);
+    }
+    // eslint-disable-next-line no-param-reassign
+    user.passwordHash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
+    user.save()
+        .then(savedUser => res.json(userMgr.toObj(savedUser)))
         .catch(e => next(e));
 };

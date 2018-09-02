@@ -32,7 +32,7 @@ router.route('/logout')
 router.route('/change-password')
 
 // POST /auth/change-password - Change password
-    .post(validate(authValidation.changePassword), authCtrl.changePassword);
+    .post(auth.requiresLogin, validate(authValidation.changePassword), authCtrl.changePassword);
 
 
 module.exports = router;

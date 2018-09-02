@@ -22,6 +22,7 @@ after((done) => {
 describe('## Auth APIs', () => {
     const itemsId = Math.random().toString(36).substring(7);
     const password = 'Asdf12';
+    const newPass = 'Uri321';
     let user = {
         email: `!!__test-${itemsId}@dummy.com`,
         nickName: `!!__test-${itemsId}`,
@@ -32,6 +33,11 @@ describe('## Auth APIs', () => {
     const loginReq = {
         email: user.email,
         password: user.password,
+    };
+    const changePassReq = {
+        email: 'dummy@dummy.com',
+        oldPassword: 'password',
+        newPassword: newPass,
     };
     let cookies;
 
@@ -108,6 +114,49 @@ describe('## Auth APIs', () => {
                 .send(user)
                 .expect(httpStatus.OK)
                 .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+
+    });
+
+    describe('# POST /auth/change-password', () => {
+        it('should failed due to bad email', (done) => {
+            const req = request(app).post('/auth/change-password');
+            req.cookies = cookies;
+            req
+                .send(changePassReq)
+                .expect(httpStatus.UNAUTHORIZED)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('should failed due to bad password', (done) => {
+            changePassReq.email = user.email;
+            const req = request(app).post('/auth/change-password');
+            req.cookies = cookies;
+            req
+                .send(changePassReq)
+                .expect(httpStatus.UNAUTHORIZED)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('should succeed', (done) => {
+            changePassReq.email = user.email;
+            changePassReq.oldPassword = password;
+            const req = request(app).post('/auth/change-password');
+            req.cookies = cookies;
+            req
+                .send(changePassReq)
+                .expect(httpStatus.OK)
+                .then((res) => {
+                    expect(res.body.email).to.equal(user.email);
                     done();
                 })
                 .catch(done);
