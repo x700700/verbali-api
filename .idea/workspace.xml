@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08922691-38f3-4cfe-85a8-63007b39b021" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/express.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/express.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middlewares/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/middlewares/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth/auth.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/auth.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/validation-consts.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/common/validation-consts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/verbal.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/verbal.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tests/verbal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/verbal.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,19 +29,19 @@
         <counts>
           <entry key="1070" value="1" />
           <entry key="1322" value="1" />
-          <entry key="env" value="2" />
+          <entry key="env" value="3" />
           <entry key="eslintrc" value="1" />
-          <entry key="example" value="1" />
+          <entry key="example" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="154" />
+          <entry key="js" value="158" />
           <entry key="json" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="2" />
+          <entry key=".env file" value="4" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="156" />
+          <entry key="JavaScript" value="160" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -66,7 +56,7 @@
           <entry key="eslintrc" value="2" />
           <entry key="example" value="44" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="5164" />
+          <entry key="js" value="5333" />
           <entry key="json" value="20" />
           <entry key="txt" value="112" />
         </counts>
@@ -75,7 +65,7 @@
         <counts>
           <entry key=".env file" value="2" />
           <entry key="JSON" value="22" />
-          <entry key="JavaScript" value="5164" />
+          <entry key="JavaScript" value="5333" />
           <entry key="PLAIN_TEXT" value="158" />
         </counts>
       </usages-collector>
@@ -127,17 +117,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="16" column="39" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -148,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mobileNumber</find>
       <find>'KK'</find>
       <find>res.body.message</find>
       <find>session.genid - sessionID:</find>
@@ -178,6 +157,7 @@
       <find>Bad credentials</find>
       <find>memorise</find>
       <find>config</find>
+      <find>MONGOOSE_DEBUG</find>
     </findStrings>
     <replaceStrings>
       <replace>4069</replace>
@@ -226,8 +206,8 @@
         <option value="$PROJECT_DIR$/server/common/validation-consts.js" />
         <option value="$PROJECT_DIR$/server/model/user.model.js" />
         <option value="$PROJECT_DIR$/server/model/verbal.model.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/server/tests/verbal.test.js" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -272,18 +252,7 @@
             <path>
               <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
-              <item name="middlewares" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -292,7 +261,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="pack&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/package.json&#10;pass&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/passport.js&#10;ver&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/tests/verbal.test.js&#10;error&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/error.js&#10;user.con&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/user/user.controller.js&#10;auth.&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;expr&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;expres&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;.env&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.env&#10;index&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;auth&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/auth/auth.controller.js&#10;verb&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/verbal/verbal.controller.js&#10;packa&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;package&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;git&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.gitignore&#10;eslint&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.eslintrc" />
+    <property name="SearchEverywhereHistoryKey" value="inde&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;pack&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/package.json&#10;pass&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/passport.js&#10;ver&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/tests/verbal.test.js&#10;error&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/error.js&#10;user.con&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/user/user.controller.js&#10;auth.&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;expr&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;expres&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;.env&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.env&#10;index&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;auth&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/auth/auth.controller.js&#10;verb&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/verbal/verbal.controller.js&#10;packa&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;package&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;git&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.gitignore&#10;eslint&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.eslintrc" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -370,7 +339,7 @@
       <workItem from="1535709037809" duration="11315000" />
       <workItem from="1535814813682" duration="13097000" />
       <workItem from="1535865516776" duration="1027000" />
-      <workItem from="1535866558136" duration="18455000" />
+      <workItem from="1535866558136" duration="19160000" />
     </task>
     <task id="LOCAL-00001" summary="model">
       <created>1535580073086</created>
@@ -463,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535908668712</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactor">
+      <created>1535909633085</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1535909633085</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -499,7 +475,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45951000" />
+    <option name="totallyTimeSpent" value="46656000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,20 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/tests/misc.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -606,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middlewares/logger.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middlewares/express.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -624,13 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
@@ -766,17 +714,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="35" lean-forward="true" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+        <state relative-caret-position="430">
+          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/middlewares/logger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="39" />
+        <state relative-caret-position="450">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
         </state>
       </provider>
     </entry>

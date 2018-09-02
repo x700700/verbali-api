@@ -1,4 +1,3 @@
-const debug = require('debug')('verbali-api:index');
 const util = require('util');
 const mongoose = require('mongoose');
 const config = require('./config/config');
@@ -29,12 +28,14 @@ mongoose.connect(mongoUri, {
 mongoose.connection.on('error', () => {
     throw new Error(`unable to connect to database: ${mongoUri}`);
 });
+logger.info(`Mongoose is connected to ${mongoUri}`);
 
 
 // print mongoose logs in dev env
 if (config.mongooseDebug) {
-    mongoose.set('debug', (collectionName, method, query, doc) => {
-        debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
+    mongoose.set('debug', (collectionName, method, query, doc, options) => {
+        const opts = options ? ` opts[${options}]` : '';
+        logger.info(`mongoose - ${collectionName}.${method}${opts}`, JSON.stringify(util.inspect(query, false, 20)), JSON.stringify(doc));
     });
 }
 
