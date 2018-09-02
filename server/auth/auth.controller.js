@@ -1,5 +1,6 @@
 const moment = require('moment');
 const httpStatus = require('http-status');
+const APIError = require('../../middlewares/APIError');
 const bcrypt = require('bcrypt-nodejs');
 const passport = require('../../config/passport');
 const User = require('../model/user.model');
@@ -22,10 +23,11 @@ exports.changePassword = (req, res, next) => {
         // eslint-disable-next-line consistent-return
         .then((user) => {
             if (!user) {
-                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid email [${email}]`);
+                // next(new APIError(`Invalid email [${email}]`, httpStatus.UNAUTHORIZED));
+                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid email [${email}]`); // Todo - send APIError
             }
             if (!bcrypt.compareSync(oldPassword, user.passwordHash)) {
-                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid password [${oldPassword}]`);
+                return res.status(httpStatus.UNAUTHORIZED).send(`Invalid password [${oldPassword}]`); // Todo - send APIError
             }
             // eslint-disable-next-line no-param-reassign
             user.passwordHash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
@@ -41,7 +43,7 @@ exports.login = (req, res, next) => {
     passport.authenticate('local', (err, user) => {
         if (err) {
             req.logout();
-            return res.status(httpStatus.UNAUTHORIZED).send(err);
+            return res.status(httpStatus.UNAUTHORIZED).send(err.message);
         }
         if (!user) {
             return res.status(httpStatus.UNAUTHORIZED).send('Missing user details');

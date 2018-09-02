@@ -14,23 +14,25 @@ exports.toNewModel = req => new User({
 });
 
 exports.updateModel = (user, req) => {
-    user.email = req.body.email;
+    // user.email = req.body.email;
     user.nickName = req.body.nickName;
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
-    user.modifiedAt = moment.now();
+    user.modifiedAt = moment.now(); // Todo - move to hook
     return user;
 };
 
 
 const toObj = user => ({
-    id: user._id,
     email: user.email,
     nickName: user.nickName,
     firstName: user.firstName,
     lastName: user.lastName,
-    createdAt: user.createdAt,
-    modifiedAt: user.modifiedAt,
+    extra: {
+        id: user._id,
+        createdAt: user.createdAt,
+        modifiedAt: user.modifiedAt,
+    },
 });
 exports.toObj = toObj;
 

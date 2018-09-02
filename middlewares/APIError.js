@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const logger = require('../config/logger');
 
 /**
  * @extends Error
@@ -32,6 +33,7 @@ class APIError extends ExtendableError {
     constructor(message, status = httpStatus.INTERNAL_SERVER_ERROR, meta) {
         const { apiErrorCode = -2, isPublic = true } = meta || {};
         super(message, status, isPublic, apiErrorCode);
+        logger.error(message);
     }
 }
 

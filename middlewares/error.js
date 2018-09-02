@@ -14,7 +14,7 @@ const handler = (err, req, res, next) => {
         message: err.isPublic && err.message ? err.message : httpStatus[err.status],
         isPublic: err.isPublic || false,
         apiErrorCode: err.apiErrorCode || -1,
-        stack: config.env === 'development' ? err.stack : {},
+        stack: config.env === 'development' && err.name !== 'APIError' ? err.stack : undefined,
     });
 };
 exports.handler = handler;
@@ -30,7 +30,7 @@ exports.converter = (err, req, res, next) => {
         const error = new APIError(unifiedErrorMessage, err.status, { apiErrorCode: -4 });
         return next(error);
     } else if (!(err instanceof APIError)) {
-        const apiError = new APIError(err.message, err.status, { isPublic: err.isPublic || false, apiErrorCode: -1 });
+        const apiError = new APIError(err.message, err.status, { isPublic: err.isPublic || true, apiErrorCode: -1 });
         return next(apiError);
     }
     return next(err);

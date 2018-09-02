@@ -7,6 +7,10 @@ const app = require('../../index');
 
 chai.config.includeStack = true;
 
+/**
+ * root level hooks
+ */
+/*
 after((done) => {
     // required because https://github.com/Automattic/mongoose/issues/1251#issuecomment-65793092
     mongoose.models = {};
@@ -14,29 +18,32 @@ after((done) => {
     mongoose.connection.close();
     done();
 });
+*/
+
+/*
+describe('## User APIs', () => {
+    const itemsId = Math.random().toString(36).substring(7);
 
 
-describe('## Misc', () => {
-    describe('# GET /status', () => {
-        it('should return OK', (done) => {
+    describe('# GET /users/', () => {
+        it('should get all users', (done) => {
             request(app)
-                .get('/status')
+                .get('/users')
                 .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.text).to.equal('OK');
+                    expect(res.body).to.be.an('array');
                     done();
                 })
                 .catch(done);
         });
-    });
 
-    describe('# GET /404', () => {
-        it('should return 404 status', (done) => {
+        it('should get all users (with limit and skip)', (done) => {
             request(app)
-                .get('/404')
-                .expect(httpStatus.NOT_FOUND)
+                .get('/users')
+                .query({ limit: 10, skip: 1 })
+                .expect(httpStatus.OK)
                 .then((res) => {
-                    expect(res.body.message).to.equal('Not Found');
+                    expect(res.body).to.be.an('array');
                     done();
                 })
                 .catch(done);
@@ -44,3 +51,4 @@ describe('## Misc', () => {
     });
 
 });
+*/

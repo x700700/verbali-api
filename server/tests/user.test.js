@@ -4,13 +4,10 @@ const httpStatus = require('http-status');
 const chai = require('chai'); // eslint-disable-line import/newline-after-import
 const { expect } = chai;
 const app = require('../../index');
+const utils = require('./utils');
 
 chai.config.includeStack = true;
 
-/**
- * root level hooks
- */
-/*
 after((done) => {
     // required because https://github.com/Automattic/mongoose/issues/1251#issuecomment-65793092
     mongoose.models = {};
@@ -18,19 +15,19 @@ after((done) => {
     mongoose.connection.close();
     done();
 });
-*/
 
-const itemsId = Math.random().toString(36).substring(7);
+
 describe('## User APIs', () => {
+    const itemsId = Math.random().toString(36).substring(7);
+    const password = 'Asdf12';
     let user = {
         email: `!!__test-${itemsId}@dummy.com`,
         nickName: `!!__test-${itemsId}`,
-        password: 'Asdf12',
+        password: password,
         firstName: `test-${itemsId}`,
         lastName: 'Weisstest',
-
     };
-    const renamedUserNickName = `!!__tst-renamed-${itemsId}`;
+    let cookies;
 
     describe('# POST /auth/register', () => {
         it('should register a new user', (done) => {
@@ -46,12 +43,49 @@ describe('## User APIs', () => {
                 })
                 .catch(done);
         });
+
+        it('login', (done) => {
+            request(app)
+                .post('/auth/login')
+                .send({
+                    email: user.email,
+                    password: password,
+                })
+                .expect(httpStatus.OK)
+                .then((res) => {
+                    cookies = utils.extractCookies(res);
+                    done();
+                })
+                .catch(done);
+        });
     });
 
-    describe('# GET /users/:userId', () => {
-        it('should get user details', (done) => {
-            request(app)
-                .get(`/users/${user.id}`)
+    describe('# PUT /users', () => {
+        it('should update user details', (done) => {
+            user.firstName += ' renamed';
+            delete user.email;
+            delete user.password;
+            delete user.extra;
+            const req = request(app).put('/users');
+            req.cookies = cookies;
+            req
+                .send(user)
+                .expect(httpStatus.OK)
+                .then((res) => {
+                    expect(res.body.nickName).to.equal(user.nickName);
+                    expect(res.body.firstName).to.include('renamed');
+                    user = res.body;
+                    done();
+                })
+                .catch(done);
+        });
+    });
+
+    describe('# DELETE /users', () => {
+        it('should delete user', (done) => {
+            const req = request(app).delete('/users');
+            req.cookies = cookies;
+            req
                 .expect(httpStatus.OK)
                 .then((res) => {
                     expect(res.body.email).to.equal(user.email);
@@ -60,76 +94,6 @@ describe('## User APIs', () => {
                 })
                 .catch(done);
         });
-
-        it('should report error with message - Not found, when user does not exists', (done) => {
-            request(app)
-                .get('/users/56c787ccc67fc16ccc1a5e92')
-                .expect(httpStatus.NOT_FOUND)
-                .then((res) => {
-                    expect(res.body.message).to.equal('Not Found');
-                    done();
-                })
-                .catch(done);
-        });
     });
 
-    describe('# PUT /users/:userId', () => {
-        it('should update user details', (done) => {
-            user.email = renamedUserNickName;
-            const userId = user.id;
-            delete user.id;
-            delete user.createdAt;
-            delete user.modifiedAt;
-            request(app)
-                .put(`/users/${userId}`)
-                .send(user)
-                .expect(httpStatus.OK)
-                .then((res) => {
-                    expect(res.body.email).to.equal(renamedUserNickName);
-                    expect(res.body.nickName).to.equal(user.nickName);
-                    user = res.body;
-                    done();
-                })
-                .catch(done);
-        });
-    });
-
-    describe('# GET /users/', () => {
-        it('should get all users', (done) => {
-            request(app)
-                .get('/users')
-                .expect(httpStatus.OK)
-                .then((res) => {
-                    expect(res.body).to.be.an('array');
-                    done();
-                })
-                .catch(done);
-        });
-
-        it('should get all users (with limit and skip)', (done) => {
-            request(app)
-                .get('/users')
-                .query({ limit: 10, skip: 1 })
-                .expect(httpStatus.OK)
-                .then((res) => {
-                    expect(res.body).to.be.an('array');
-                    done();
-                })
-                .catch(done);
-        });
-    });
-
-    describe('# DELETE /users/', () => {
-        it('should delete user', (done) => {
-            request(app)
-                .delete(`/users/${user.id}`)
-                .expect(httpStatus.OK)
-                .then((res) => {
-                    expect(res.body.email).to.equal(renamedUserNickName);
-                    expect(res.body.nickName).to.equal(user.nickName);
-                    done();
-                })
-                .catch(done);
-        });
-    });
 });

@@ -2,7 +2,8 @@ const _ = require('lodash');
 const passport = require('passport');
 const bcrypt = require('bcrypt-nodejs');
 const LocalStrategy = require('passport-local').Strategy;
-// const httpStatus = require('http-status');
+const httpStatus = require('http-status');
+const APIError = require('../middlewares/APIError');
 const User = require('../server/model/user.model');
 
 
@@ -15,14 +16,14 @@ passport.use(new LocalStrategy(
         User.findOne({ email: email })
             .then((user) => {
                 if (!user) {
-                    return done(`Invalid email [${email}]`, null);
+                    return done(new APIError('Bad credentials', httpStatus.UNAUTHORIZED), null);
                 }
                 if (!bcrypt.compareSync(password, user.passwordHash)) {
-                    return done(`Invalid password [${password}]`, null);
+                    return done(new APIError('Bad credentials', httpStatus.UNAUTHORIZED), null);
                 }
                 return done(null, user);
             })
-            .catch(e => done(e));
+            .catch(e => done(e, null));
     },
 ));
 
@@ -38,7 +39,7 @@ passport.deserializeUser((id, done) => {
             if (user) {
                 done(null, user);
             } else {
-                done(`user id=[${id}] not found`, false);
+                done(new APIError("deserializeUser didn't find user", httpStatus.UNAUTHORIZED), null);
             }
         })
         .catch(e => done(e));

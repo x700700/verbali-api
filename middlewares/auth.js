@@ -1,12 +1,11 @@
-
+const httpStatus = require('http-status');
+const APIError = require('./APIError');
 
 
 exports.requiresLogin = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     } else {
-        const err = new Error('You must first sign in.');
-        err.status = 401;
-        return next(err);
+        return next(new APIError('You must first sign in', httpStatus.UNAUTHORIZED));
     }
 };

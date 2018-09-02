@@ -6,6 +6,7 @@ module.exports = {
     regisger: {
         body: {
             ...userValidation.mainFields,
+            email: Joi.string().required(),
             password: Joi.string().required(),
         },
         options: reqValidationOptionsStrict,
@@ -25,8 +26,13 @@ module.exports = {
     },
 
     changePassword: {
+        /*
+        params: {
+            userId: Joi.string().hex().required(),
+        },
+        */
         body: {
-            email: Joi.string().required(),
+            email: Joi.string().required(), // Todo - remove parm. change only once logged on
             oldPassword: Joi.string().required(),
             newPassword: Joi.string().required(),
         },
