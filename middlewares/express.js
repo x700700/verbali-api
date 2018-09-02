@@ -18,8 +18,8 @@ const passport = require('./passport');
 
 const winstonInstance = require('./logger');
 const routes = require('../server/index.route');
-const config = require('./config');
-const error = require('../middlewares/error');
+const config = require('../config/config');
+const error = require('./error');
 
 
 const app = express();

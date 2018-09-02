@@ -91,4 +91,19 @@ describe('## Verbal APIs', () => {
         */
     });
 
+    describe('# DELETE /users', () => {
+        it('should delete user', (done) => {
+            const req = request(app).delete('/users');
+            req.cookies = cookies;
+            req
+                .expect(httpStatus.OK)
+                .then((res) => {
+                    expect(res.body.email).to.equal(user.email);
+                    expect(res.body.nickName).to.equal(user.nickName);
+                    done();
+                })
+                .catch(done);
+        });
+    });
+
 });

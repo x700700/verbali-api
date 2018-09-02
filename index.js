@@ -1,19 +1,17 @@
-// config should be imported before importing any other file
-
-const mongoose = require('mongoose');
-
+const debug = require('debug')('verbali-api:index');
 const util = require('util');
-const debug = require('debug')('memorise-api:index');
-const logger = require('./config/logger');
-
-const app = require('./config/express');
+const mongoose = require('mongoose');
 const config = require('./config/config');
+const logger = require('./middlewares/logger');
+const app = require('./middlewares/express');
+
 
 // make bluebird default Promise
 Promise = require('bluebird'); // eslint-disable-line no-global-assign
 
 // plugin bluebird promise in mongoose
 mongoose.Promise = Promise;
+
 
 // connect to mongo db
 const mongoUri = `mongodb://${config.mongo.username}:${config.mongo.password}@${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`;
@@ -32,6 +30,7 @@ mongoose.connection.on('error', () => {
     throw new Error(`unable to connect to database: ${mongoUri}`);
 });
 
+
 // print mongoose logs in dev env
 if (config.mongooseDebug) {
     mongoose.set('debug', (collectionName, method, query, doc) => {
@@ -39,10 +38,10 @@ if (config.mongooseDebug) {
     });
 }
 
+
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
 if (!module.parent) {
-    // listen on port config.port
     app.listen(config.port, () => {
         logger.info(`server started on port ${config.port} (${config.env})`); // eslint-disable-line no-console
     });

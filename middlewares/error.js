@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const expressValidation = require('express-validation');
 const APIError = require('./APIError');
-const logger = require('../config/logger');
+const logger = require('./logger');
 const config = require('../config/config');
 
 

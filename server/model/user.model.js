@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const APIError = require('../../middlewares/APIError');
 
-/**
- * User Schema
- */
 
 // Todo GDPR - encrypt db
 
@@ -51,19 +48,10 @@ const UserSchema = new mongoose.Schema({
  * - virtuals
  */
 
-/**
- * Methods
- */
 UserSchema.method({
 });
 
-/**
- * Statics
- */
 UserSchema.statics = {
-    /**
-     * Get user
-     */
     get(id) {
         try {
             return this.findById(id)
@@ -79,9 +67,6 @@ UserSchema.statics = {
         }
     },
 
-    /**
-     * List users in descending order of 'createdAt' timestamp.
-     */
     list({ skip = 0, limit = 50 } = {}) {
         try {
             return this.find()

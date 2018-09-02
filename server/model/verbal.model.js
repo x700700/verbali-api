@@ -53,9 +53,7 @@ const VerbalSchema = new mongoose.Schema({
  * - virtuals
  */
 
-/**
- * Methods
- */
+
 VerbalSchema.method({
 });
 
