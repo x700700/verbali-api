@@ -35,7 +35,21 @@ describe('## Auth APIs', () => {
     };
     let cookies;
 
-    describe('# POST /auth/login', () => {
+    describe('# GET /verbals', () => {
+        it('should failed get verbals due to not signed in', (done) => {
+            const req = request(app).get('/verbals');
+            req.cookies = cookies;
+            req
+                .send(user)
+                .expect(httpStatus.UNAUTHORIZED)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+    });
+
+    describe('# POST /auth/register & login', () => {
         it('should return Authentication error', (done) => {
             request(app)
                 .post('/auth/login')
@@ -62,7 +76,7 @@ describe('## Auth APIs', () => {
                 .catch(done);
         });
 
-        it('should get valid session cookie', (done) => {
+        it('should login & get valid session cookie', (done) => {
             request(app)
                 .post('/auth/login')
                 .send(loginReq)

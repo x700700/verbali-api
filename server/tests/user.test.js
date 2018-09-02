@@ -29,7 +29,21 @@ describe('## User APIs', () => {
     };
     let cookies;
 
-    describe('# POST /auth/register', () => {
+    describe('# PUT /users', () => {
+        it('should failed update user due to not signed in', (done) => {
+            const req = request(app).put('/users');
+            req.cookies = cookies;
+            req
+                .send(user)
+                .expect(httpStatus.UNAUTHORIZED)
+                .then(() => {
+                    done();
+                })
+                .catch(done);
+        });
+    });
+
+    describe('# POST /auth/register & login', () => {
         it('should register a new user', (done) => {
             request(app)
                 .post('/auth/register')
