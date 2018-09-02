@@ -39,13 +39,6 @@ exports.login = (req, res, next) => {
     })(req, res, next);
 };
 
-exports.check = (req, res) => {
-    if (req.isAuthenticated()) {
-        return res.json(userMgr.toObj(req.user));
-    } else {
-        return res.status(httpStatus.UNAUTHORIZED).send('Not Authenticated');
-    }
-};
 
 exports.logout = (req, res) => {
     req.logout();
