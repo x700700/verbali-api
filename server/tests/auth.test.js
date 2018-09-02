@@ -113,7 +113,9 @@ describe('## Auth APIs', () => {
             req
                 .send(user)
                 .expect(httpStatus.OK)
-                .then(() => {
+                .then((res) => {
+                    expect(res.body.email).to.equal(user.email);
+                    expect(res.body.nickName).to.equal(user.nickName);
                     done();
                 })
                 .catch(done);

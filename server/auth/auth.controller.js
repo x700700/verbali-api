@@ -1,18 +1,15 @@
-const moment = require('moment');
 const httpStatus = require('http-status');
 const bcrypt = require('bcrypt-nodejs');
 const logger = require('../../middlewares/logger');
 const APIError = require('../../middlewares/APIError');
 const passport = require('../../middlewares/passport');
-const userMgr = require('../user/user.manager');
+const userWebModel = require('../user/user.webModel');
 
 
 exports.register = (req, res, next) => {
-    const user = userMgr.toNewModel(req);
-    user.createdAt = moment.now();
-    user.modifiedAt = null;
+    const user = userWebModel.toNewModel(req);
     user.save()
-        .then(savedUser => res.json(userMgr.toObj(savedUser)))
+        .then(savedUser => res.json(userWebModel.toObj(savedUser)))
         .catch(e => next(e));
 };
 
@@ -34,7 +31,7 @@ exports.login = (req, res, next) => {
                 logger.error(error);
                 return res.status(httpStatus.UNAUTHORIZED).send(error);
             }
-            return res.json(userMgr.toObj(user));
+            return res.json(userWebModel.toObj(user));
         });
     })(req, res, next);
 };
@@ -61,6 +58,6 @@ exports.changePassword = (req, res, next) => {
     // eslint-disable-next-line no-param-reassign
     user.passwordHash = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(8), null);
     user.save()
-        .then(savedUser => res.json(userMgr.toObj(savedUser)))
+        .then(savedUser => res.json(userWebModel.toObj(savedUser)))
         .catch(e => next(e));
 };

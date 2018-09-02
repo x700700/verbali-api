@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const Promise = require('bluebird');
 const mongoose = require('mongoose');
 const httpStatus = require('http-status');
@@ -36,17 +37,28 @@ const UserSchema = new mongoose.Schema({
     },
     modifiedAt: {
         type: Date,
-        default: Date.now,
     },
 });
 
-/**
- * Add your
- * - pre-save hooks
- * // Todo - modifiedAt
- * - validations
- * - virtuals
- */
+
+UserSchema.pre('save', function (next) {
+    this.createdAt = Date.now();
+    this.modifiedAt = null;
+    next();
+});
+UserSchema.pre('update', function (next) {
+    this.update({
+        modifiedAt: Date.now(),
+    });
+    next();
+});
+UserSchema.pre('findOneAndUpdate', function (next) {
+    this.update({
+        modifiedAt: Date.now(),
+    });
+    next();
+});
+
 
 UserSchema.method({
 });
@@ -62,18 +74,6 @@ UserSchema.statics = {
                     }
                     throw new APIError('No such user exists!', httpStatus.NOT_FOUND, { isPublic: false });
                 }); // Todo - .catch instead of try
-        } catch (err) {
-            return Promise.reject(err);
-        }
-    },
-
-    list({ skip = 0, limit = 50 } = {}) {
-        try {
-            return this.find()
-                .sort({ createdAt: -1 })
-                .skip(+skip)
-                .limit(+limit)
-                .exec();
         } catch (err) {
             return Promise.reject(err);
         }

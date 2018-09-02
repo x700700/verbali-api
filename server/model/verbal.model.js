@@ -6,7 +6,7 @@ const APIError = require('../../middlewares/APIError');
 
 const VerbalSchema = new mongoose.Schema({
     userId: {
-        type: String,
+        type: mongoose.Types.ObjectId,
         required: true,
         index: true,
     },
@@ -31,7 +31,7 @@ const VerbalSchema = new mongoose.Schema({
         index: true,
     },
     text: {
-        type: Buffer,
+        type: mongoose.Types.String,
     },
     size: {
         type: Number,

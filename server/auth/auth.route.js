@@ -3,7 +3,7 @@ const validate = require('express-validation');
 const auth = require('../../middlewares/auth');
 const authValidation = require('./auth.validation');
 const authCtrl = require('./auth.controller');
-const userMgr = require('../user/user.manager');
+const userWebModel = require('../user/user.webModel');
 
 
 const router = express.Router(); // eslint-disable-line new-cap
@@ -22,7 +22,7 @@ router.route('/login')
 router.route('/check')
 
     // GET /auth/check - Check user is logged in
-    .get(auth.requiresLogin, (req, res) => res.json(userMgr.toObj(req.user)));
+    .get(auth.requiresLogin, (req, res) => res.json(userWebModel.toObj(req.user)));
 
 router.route('/logout')
 

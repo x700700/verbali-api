@@ -76,19 +76,36 @@ describe('## User APIs', () => {
 
     describe('# PUT /users', () => {
         it('should update user details', (done) => {
-            user.firstName += ' renamed';
-            delete user.email;
-            delete user.password;
-            delete user.extra;
+            const userUpdate = {
+                firstName: 'user renamed',
+            };
             const req = request(app).put('/users');
+            req.cookies = cookies;
+            req
+                .send(userUpdate)
+                .expect(httpStatus.OK)
+                .then((res) => {
+                    expect(res.body.id).to.equal(user.id);
+                    expect(res.body.email).to.equal(user.email);
+                    expect(res.body.nickName).to.equal(user.nickName);
+                    expect(res.body.firstName).to.include('renamed');
+                    user = res.body;
+                    done();
+                })
+                .catch(done);
+        });
+
+        it('should get the updated user', (done) => {
+            const req = request(app).get('/auth/check');
             req.cookies = cookies;
             req
                 .send(user)
                 .expect(httpStatus.OK)
                 .then((res) => {
+                    expect(res.body.id).to.equal(user.id);
+                    expect(res.body.email).to.equal(user.email);
                     expect(res.body.nickName).to.equal(user.nickName);
                     expect(res.body.firstName).to.include('renamed');
-                    user = res.body;
                     done();
                 })
                 .catch(done);

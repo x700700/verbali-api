@@ -1,12 +1,11 @@
 const Joi = require('joi');
 const { reqValidationOptionsStrict } = require('../common/validation-consts');
+const userValidation = require('../user/user.validation');
 
 module.exports = {
     regisger: {
         body: {
-            nickName: Joi.string().required(),
-            firstName: Joi.string().required(),
-            lastName: Joi.string().required(),
+            ...userValidation.mainFields,
             email: Joi.string().required(),
             password: Joi.string().required(),
         },

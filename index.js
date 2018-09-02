@@ -34,7 +34,7 @@ logger.info(`Mongoose is connected to ${mongoUri}`);
 // print mongoose logs in dev env
 if (config.mongooseDebug) {
     mongoose.set('debug', (collectionName, method, query, doc, options) => {
-        const opts = options ? ` opts[${options}]` : '';
+        const opts = options ? ` opts[${JSON.stringify(options)}]` : '';
         logger.info(`mongoose - ${collectionName}.${method}${opts}`, JSON.stringify(util.inspect(query, false, 20)), JSON.stringify(doc));
     });
 }

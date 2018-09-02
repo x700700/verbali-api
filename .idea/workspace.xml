@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08922691-38f3-4cfe-85a8-63007b39b021" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/verbal/verbal.validation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/auth/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/auth/auth.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/auth.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auth/auth.validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/auth.validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/verbal.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/verbal.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/tests/auth.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/auth.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/user.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/user.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/user/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user/user.manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/user/user.webModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user/user.validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/user/user.validation.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +44,7 @@
           <entry key="eslintrc" value="1" />
           <entry key="example" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="169" />
+          <entry key="js" value="183" />
           <entry key="json" value="3" />
         </counts>
       </usages-collector>
@@ -43,7 +52,7 @@
         <counts>
           <entry key=".env file" value="4" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="171" />
+          <entry key="JavaScript" value="185" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -58,17 +67,17 @@
           <entry key="eslintrc" value="2" />
           <entry key="example" value="44" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="6004" />
+          <entry key="js" value="6924" />
           <entry key="json" value="20" />
-          <entry key="txt" value="133" />
+          <entry key="txt" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="2" />
           <entry key="JSON" value="22" />
-          <entry key="JavaScript" value="6004" />
-          <entry key="PLAIN_TEXT" value="179" />
+          <entry key="JavaScript" value="6924" />
+          <entry key="PLAIN_TEXT" value="206" />
         </counts>
       </usages-collector>
     </session>
@@ -119,7 +128,62 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/model/verbal.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/tests/user.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="547">
+              <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/tests/auth.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="116" column="64" lean-forward="true" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/model/user.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/user/user.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/user/user.validation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,16 +194,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>session.genid - sessionID:</find>
-      <find>sessionID</find>
-      <find>user.username</find>
-      <find>_id</find>
-      <find>._id</find>
-      <find>username</find>
-      <find>user</find>
-      <find>model</find>
-      <find>userId</find>
-      <find>toModel</find>
       <find>const httpStatus</find>
       <find>invalid email</find>
       <find>Invalid email</find>
@@ -160,6 +214,16 @@
       <find>MONGOOSE_DEBUG</find>
       <find>http</find>
       <find>const { user }</find>
+      <find>reqValidationOptionsStrict</find>
+      <find>UserSchema</find>
+      <find>createdAt</find>
+      <find>modifiedAt</find>
+      <find>.now</find>
+      <find>mainFields</find>
+      <find>opts</find>
+      <find>User.get</find>
+      <find>user.webModel</find>
+      <find>put('/users')</find>
     </findStrings>
     <replaceStrings>
       <replace>4069</replace>
@@ -187,28 +251,28 @@
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/express.js" />
-        <option value="$PROJECT_DIR$/server/auth/auth.validation.js" />
-        <option value="$PROJECT_DIR$/server/user/user.validation.js" />
         <option value="$PROJECT_DIR$/server/user/user.route.js" />
         <option value="$PROJECT_DIR$/server/verbal/verbal.route.js" />
-        <option value="$PROJECT_DIR$/server/user/user.manager.js" />
         <option value="$PROJECT_DIR$/server/tests/utils.js" />
         <option value="$PROJECT_DIR$/server/tests/misc.test.js" />
-        <option value="$PROJECT_DIR$/server/tests/user.test.js" />
-        <option value="$PROJECT_DIR$/server/user/user.controller.js" />
         <option value="$PROJECT_DIR$/middlewares/APIError.js" />
         <option value="$PROJECT_DIR$/middlewares/error.js" />
         <option value="$PROJECT_DIR$/config/passport.js" />
         <option value="$PROJECT_DIR$/server/verbal/verbal.controller.js" />
         <option value="$PROJECT_DIR$/middlewares/passport.js" />
         <option value="$PROJECT_DIR$/server/common/validation-consts.js" />
-        <option value="$PROJECT_DIR$/server/model/user.model.js" />
-        <option value="$PROJECT_DIR$/server/model/verbal.model.js" />
         <option value="$PROJECT_DIR$/server/tests/verbal.test.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/middlewares/auth.js" />
-        <option value="$PROJECT_DIR$/server/auth/auth.controller.js" />
+        <option value="$PROJECT_DIR$/server/model/verbal.model.js" />
+        <option value="$PROJECT_DIR$/server/auth/auth.validation.js" />
+        <option value="$PROJECT_DIR$/server/user/user.manager.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/server/user/user.validation.js" />
         <option value="$PROJECT_DIR$/server/auth/auth.route.js" />
+        <option value="$PROJECT_DIR$/server/user/user.controller.js" />
+        <option value="$PROJECT_DIR$/server/auth/auth.controller.js" />
+        <option value="$PROJECT_DIR$/server/model/user.model.js" />
+        <option value="$PROJECT_DIR$/server/tests/user.test.js" />
         <option value="$PROJECT_DIR$/server/tests/auth.test.js" />
       </list>
     </option>
@@ -256,6 +320,36 @@
               <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="verbali-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="verbali-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="verbal" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -263,7 +357,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="auth&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;logg&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/logger.js&#10;inde&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;pack&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/package.json&#10;pass&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/passport.js&#10;ver&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/tests/verbal.test.js&#10;error&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/error.js&#10;user.con&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/user/user.controller.js&#10;auth.&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;expr&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;expres&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;.env&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.env&#10;index&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;verb&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/verbal/verbal.controller.js&#10;packa&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;package&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;git&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.gitignore&#10;eslint&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.eslintrc" />
+    <property name="SearchEverywhereHistoryKey" value="user&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/model/user.model.js&#10;auth&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;logg&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/logger.js&#10;inde&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;pack&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/package.json&#10;pass&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/passport.js&#10;ver&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/tests/verbal.test.js&#10;error&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/middlewares/error.js&#10;user.con&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/user/user.controller.js&#10;auth.&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/server/auth/auth.controller.js&#10;expr&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;expres&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/config/express.js&#10;.env&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.env&#10;index&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/index.js&#10;verb&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/server/verbal/verbal.controller.js&#10;packa&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;package&#9;FILE&#9;file:///Users/booli/Documents/GitHub/verbali-api/package.json&#10;git&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.gitignore&#10;eslint&#9;FILE&#9;file:///Users/booli/Dev/verbali-api/.eslintrc" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -282,6 +376,7 @@
       <recent name="$PROJECT_DIR$/server/model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/verbal" />
       <recent name="$PROJECT_DIR$/server/tests" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -318,7 +413,7 @@
       <workItem from="1535709037809" duration="11315000" />
       <workItem from="1535814813682" duration="13097000" />
       <workItem from="1535865516776" duration="1027000" />
-      <workItem from="1535866558136" duration="21887000" />
+      <workItem from="1535866558136" duration="27697000" />
     </task>
     <task id="LOCAL-00001" summary="model">
       <created>1535580073086</created>
@@ -439,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535912123514</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="change password fix &amp; tests">
+      <created>1535913185705</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1535913185705</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -475,7 +577,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49383000" />
+    <option name="totallyTimeSpent" value="55193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,6 +590,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -508,6 +611,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4853503" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3987261" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32866243" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3287841" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -531,7 +654,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="mongoose log" />
     <MESSAGE value="auth logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="auth logs" />
+    <MESSAGE value="change password fix &amp; tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="change password fix &amp; tests" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server/model/exercise.model.js" />
@@ -577,62 +701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/auth/auth.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/common/validation-consts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/verbal.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/user.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/user/user.validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/user/user.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/user/user.manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/user/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -667,13 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/tests/user.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="111" lean-forward="true" selection-start-line="97" selection-end-line="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/middlewares/passport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
@@ -685,13 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -744,24 +802,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/tests/auth.test.js">
+    <entry file="file://$PROJECT_DIR$/server/common/validation-consts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/verbal.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/auth/auth.validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/user/user.validation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/auth/auth.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+        <state relative-caret-position="90">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/auth/auth.route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/user/user.webModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/user.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/user/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/tests/auth.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="116" column="64" lean-forward="true" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/tests/user.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
         </state>
       </provider>
     </entry>

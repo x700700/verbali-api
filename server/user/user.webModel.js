@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-const moment = require('moment');
 const bcrypt = require('bcrypt-nodejs');
 const User = require('../model/user.model');
 
@@ -10,15 +9,14 @@ exports.toNewModel = req => new User({
     nickName: req.body.nickName,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    modifiedAt: moment.now(),
 });
 
-exports.updateModel = (user, req) => {
-    // user.email = req.body.email;
-    user.nickName = req.body.nickName;
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
-    user.modifiedAt = moment.now(); // Todo - move to hook
+exports.toUpdate = (req) => {
+    const { nickName, firstName, lastName } = req.body;
+    const user = {};
+    if (nickName) user.nickName = nickName;
+    if (firstName) user.firstName = firstName;
+    if (lastName) user.lastName = lastName;
     return user;
 };
 
