@@ -44,15 +44,6 @@ const VerbalSchema = new mongoose.Schema({
 });
 
 
-/**
- * Add your
- * - pre-save hooks
-        * Todo - update modifiedBy
- * - validations
-        * Todo - validate q/a length
- * - virtuals
- */
-
 
 VerbalSchema.method({
 });

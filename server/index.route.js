@@ -6,8 +6,6 @@ const verbalsRoute = require('./verbal/verbal.route');
 
 const router = express.Router(); // eslint-disable-line new-cap
 
-// TODO: use glob to match *.route files
-
 
 router.get('/status', (req, res) =>
     res.send('OK'),

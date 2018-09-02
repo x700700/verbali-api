@@ -73,7 +73,7 @@ UserSchema.statics = {
                         return user;
                     }
                     throw new APIError('No such user exists!', httpStatus.NOT_FOUND, { isPublic: false });
-                }); // Todo - .catch instead of try
+                });
         } catch (err) {
             return Promise.reject(err);
         }

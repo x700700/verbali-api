@@ -33,7 +33,7 @@ module.exports = {
         },
         */
         body: {
-            email: Joi.string().required(), // Todo - remove parm. change only once logged on
+            email: Joi.string().required(),
             oldPassword: Joi.string().required(),
             newPassword: Joi.string().required(),
         },
