@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { reqValidationOptionsStrict } = require('../utils/validation-consts');
+const { reqValidationOptionsStrict } = require('../common/validation-consts');
 
 
 const mainFields = {
