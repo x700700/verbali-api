@@ -32,7 +32,7 @@ const envVarsSchema = Joi.object({
     MONGO_DATABASE: Joi.string()
         .description('api Mongo database name')
         .required(),
-}).unknown(false);
+}).unknown();
 
 const { error, value: envVars } = Joi.validate(process.env, envVarsSchema);
 if (error) {
